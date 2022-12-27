@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>
+The Enter/Exit Strings Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0205.HTM"><img src="udo_lf.gif" alt="The Monitor Window"></a>
+<a href="0207.HTM"><img src="udo_rg.gif" alt="The Program Change Mapper Window"></a>
+<hr>
+<h1><a name="The Enter/Exit Strings Window">2.6 The Enter/Exit Strings Window</a></h1>
+<p>Enter MIDI strings in hexadecimal notation here. The
+&quot;Enter&quot; string will be sent when you press &quot;start&quot;
+in the Controller window, the &quot;Exit&quot; string will be sent
+when &quot;start&quot; is deselected.
+</p>
+<p>Press the &quot;Enter&quot; and &quot;Exit&quot; buttons to test
+your MIDI strings and send them to the MIDI output of your computer.
+</p>
+<p>There are 2 sets of strings. The one set is sent in pitch bend
+mode, and the other one is sent in scale tune mode.
+</p>
+<p>Example purpose: With my Roland JV-1010 I use the
+&quot;Enter&quot; string &quot;b9 00 50 20 00 c9 1f&quot; in pitch
+bend mode to select a special performance. This user performance with
+index #31 can be selected by sending bank select and program change
+messages on the performance control channel #9. It has 16 identical
+piano sounds with a pitch bend range of &quot;one half tone&quot; per
+direction. The string above could be preceeded by the system exclusive
+message &quot;f0 41 10 6a 12 00 00 00 00 00 00 f7&quot; to guarantee
+that the JV-1010 is in performance mode before the performance is
+selected.
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0205.HTM"><img src="udo_lf.gif" alt="The Monitor Window"></a>
+<a href="0207.HTM"><img src="udo_rg.gif" alt="The Program Change Mapper Window"></a>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Description"
+content="Rational Instruments and Tools for Making Music">
+<meta name="Keywords"
+content="MIDI, music, keyboard, notation, inventor, microtonal">
+<meta name="Author" content="Harald Rieder, Stuttgart, Germany">
+<meta name="Publisher"
+content="Harald Rieder, Stuttgart, Germany">
+<meta name="Copyright"
+content="Harald Rieder, Stuttgart, Germany">
+<meta name="Content-language" content="en">
+<meta name="Page-topic" content="music">
+<meta name="Page-type" content="private">
+<meta name="Audience" content="musicians">
+<meta name="Robots" content="INDEX,FOLLOW">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>Mad Harry's Music Page</title>
+</head>
+
+<body>
+
+<h1 align="center">Mad Harry's ACS Modules</h1>
+
+<p align="left">ACS modules are loadable modules for <a
+href="http://acspro.atari.org">ACS</a> applications. The modules
+on this page were developped/translated by me and are for free!
+ACS programmers can use them in their ACS applications.&nbsp;</p>
+
+<p align="left">The modules require an application based on ACS
+2.3 or ACS 3. English speaking modules are available for:</p>
+
+<ol>
+    <li><p align="left"><a href="#color">color selection</a></p>
+    </li>
+    <li><p align="left"><a href="#style">fill style selection</a></p>
+    </li>
+    <li><p align="left"><a href="#config">general ACS
+        configuration</a></p>
+    </li>
+    <li><p align="left"><a href="#dither">ACS dither
+        configuration</a></p>
+    </li>
+</ol>
+
+<p><a name="sources"></a>Programmers might want to download: </p>
+
+<ul>
+    <li><a href="my_libs.zip">source code of all modules with Pure C project files</a>
+        (in the folder acsmodul/ of the zip archive)
+    </li>
+</ul>
+
+<hr>
+
+<h2><a name="color"></a>Color Selection Module</h2>
+
+<p>The color selection module allows to select a color. In screen
+modes with up to 16 colors there will appear up to 16 buttons
+which allow to directly select a color. In screen modes with more
+colors, a 2-dimensional projection of the RGB color cube is
+drawn, and first a color out of the 3 visible planes must be
+chosen, then a color can be selected from the 8 value buttons
+(HSV color model).&nbsp;</p>
+
+<table border="0" cellpadding="2" width="100%" height="37">
+    <tr>
+        <td valign="bottom" width="20%" height="40"><h4
+        align="center">2 color palette</h4>
+        </td>
+        <td align="center" valign="bottom" width="20%"
+        height="40"><h4>4 color palette</h4>
+        </td>
+        <td align="center" valign="bottom" width="20%"
+        height="40"><h4>16 color palette</h4>
+        </td>
+        <td align="center" valign="bottom" width="20%"
+        height="40"><h4>256 color palette</h4>
+        </td>
+        <td align="center" valign="bottom" width="20%"
+        height="40"><h4>direct color mode</h4>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" width="20%" height="1"><img
+        src="2colors.gif" width="98" height="56"></td>
+        <td align="center" valign="top" width="20%" height="1"><img
+        src="4colors.gif" width="98" height="32"></td>
+        <td align="center" valign="top" width="20%" height="1"><img
+        src="16colors.gif" width="194" height="88"></td>
+        <td align="center" valign="top" width="20%" height="1"><img
+        src="256color.gif" width="194" height="257"> <p>(on Magic: <a href="../midiprt/midiprt4.gif">here</a> in the bottom
+        right corner)</p>
+        </td>
+        <td valign="top" width="20%" height="1">Unfortunately I
+        got no utility to make DC screenshots on TOS...</td>
+    </tr>
+</table>
+
+<p>The selected color arrives as message in the one ACS window
+that possesses the global selection list. The format of the color
+message your application will get is defined in <a
+href="colorsel.h">colorsel.h</a>.</p>
+
+<p>An <font color="#FF0000">example code</font> is here:</p>
+
+<blockquote>
+    <pre><font color="#FF0000"># include &lt;colorsel.h&gt;</font>
+<font color="#00FF00"># include &lt;stylesel.h&gt;
+</font>...
+/* the service procedure of your window: */
+static INT16 service(Awindow *wi, INT16 task, void *in_out)
+{
+	switch (task)
+	{
+	... 
+<font color="#00FF00">	case STYLE_CLICKED:
+	case STYLE_DRAGGED:
+</font>		update_data(wi, <font color="#00FF00">(STYLE_MESSAGE *)in_out</font>, NULL) ;
+		break ;
+<font color="#FF0000">	case COLOR_CLICKED:
+	case COLOR_DRAGGED:
+</font>		update_data(wi, NULL, <font color="#FF0000">(COLOR_MESSAGE *)in_out</font>) ;
+		break ;
+	default: return Awi_service(wi, task, in_out) ;
+	}
+	return TRUE ; /* task has been treated */
+}
+</pre>
+</blockquote>
+
+<p>Once you have caught the color message, you must walk through
+the selection list and update the colors of all ACS objects
+therein. For your convenience the COLOR_MESSAGE structure
+contains the selected color in three forms:</p>
+
+<ul>
+    <li>palette index, which you can use directly for
+        vsl_color(), vst_color(), vsf_color(). However in direct
+        color mode you will get -1 as index.</li>
+    <li>15 bit RGB value (as a 16 bit integer with the least
+        significant 5 bits containing the red value, ...)</li>
+    <li>separate red, green and blue values, each with a possible
+        range from 0..1000 as input parameters for vs_color().</li>
+</ul>
+
+<p>In the (a little bit complicated) <font color="#FF0000">example</font>
+below only the palette index is evaluated:</p>
+
+<blockquote>
+    <pre>
+static void update_data(Awindow *wi, <font color="#00FF00">STYLE_MESSAGE *sm</font>, <font
+color="#FF0000">COLOR_MESSAGE *cm</font>)
+{
+	SCHMEDIT_DB *db = wi-&gt;user ;
+	int i, obnr, found, fullredraw = FALSE ;
+	
+	Adr_start() ;
+	while((obnr = Adr_next()) &gt;= 0)
+	{
+		found = FALSE ;
+
+		if (!found &amp;&amp; BACKGROUND == obnr)
+		{
+			if (sm) 
+<font color="#00FF00">				db-&gt;scheme.back_style = sm-&gt;style ;
+</font>			if (cm)
+<font color="#FF0000">				db-&gt;scheme.back_color = cm-&gt;index ;
+</font>			found = TRUE ;
+			fullredraw = TRUE ;
+		}
+		if (!found &amp;&amp; BARS == obnr)
+		{
+			if (cm)
+<font color="#FF0000">				db-&gt;scheme.text_color = cm-&gt;index ;
+</font>			found = TRUE ;
+			fullredraw = TRUE ;
+		}
+		for (i = 0 ; !found &amp;&amp; i &lt; 12 ; i++)
+		{
+			if (heads[i] == obnr)
+			{
+				if (sm) 
+<font color="#00FF00">					db-&gt;scheme.note_style_ends[i] = sm-&gt;style ;
+</font>				if (cm)
+<font color="#FF0000">					db-&gt;scheme.note_color_ends[i] = cm-&gt;index ;
+</font>				if (!fullredraw)
+					Awi_obredraw(wi, tails[i]) ;
+				found = TRUE ;
+			}
+			else if (bodies[i] == obnr)
+			{
+				if (sm) 
+<font color="#00FF00">					db-&gt;scheme.note_style[i] = sm-&gt;style ;
+</font>				if (cm)
+<font color="#FF0000">					db-&gt;scheme.note_color[i] = cm-&gt;index ;
+</font>				found = TRUE ;
+			}
+			else if (i &lt; 11 &amp;&amp; dodecimes[i] == obnr)
+			{
+				if (sm) 
+<font color="#00FF00">					db-&gt;scheme.dodecime_style[i] = sm-&gt;style ;
+</font>				if (cm)
+<font color="#FF0000">					db-&gt;scheme.dodecime_color[i] = cm-&gt;index ;
+</font>				found = TRUE ;
+				if (i == db-&gt;current_dodecime)
+					if (!fullredraw)
+						Awi_obchange(wi, _SCHEME, -1) ;
+			}
+		}
+		if (found &amp;&amp; !fullredraw)
+			Awi_obredraw(wi, obnr) ;
+	}
+	if (fullredraw)
+	{
+		Awi_obchange(wi, BARS   , -1) ;
+		Awi_obchange(wi, _SCHEME, -1) ;
+	}
+}</pre>
+</blockquote>
+
+<p>You can explicitly load the color selection module with
+Ash_module(). If you want to avoid that the module is loaded more
+than once you can broadcast a query for a loaded color selection
+module like below, and if you do not get a positive answer you
+load the module like in this <font color="#FF0000">example</font>:</p>
+
+<blockquote>
+    <pre>static Awindow *create(void *scheme_path)
+{
+	INT16 available ;
+	char textbuff[128] ;
+	...
+<font color="#FF0000">	available = FALSE ;
+	Awi_sendall(COLOR_AVAILABLE, &amp;available) ;
+	if (!available)
+	{
+		/* there is no color selector =&gt; load one */
+		sprintf(textbuff, &quot;%s%s&quot;, ACSblk-&gt;apppath, &quot;COLORSEL.AM&quot;) ;
+		Ash_module(textbuff) ;
+	}
+</font><font color="#00FF00">	available = FALSE ;
+	Awi_sendall(STYLE_AVAILABLE, &amp;available) ;
+	if (!available)
+	{
+		/* there is no style selector =&gt; load one */
+		sprintf(textbuff, &quot;%s%s&quot;, ACSblk-&gt;apppath, &quot;STYLESEL.AM&quot;) ;
+		Ash_module(textbuff) ;
+	}
+</font>	...
+}</pre>
+</blockquote>
+
+<p>Download: </p>
+
+<ul>
+    <li><a href="colorsel.h">C header file</a></li>
+    <li><a href="colorsel.am">color selection module</a></li>
+</ul>
+
+<hr>
+
+<h2><a name="style"></a>Fill Style Selection Module</h2>
+
+<p>The fill style selection module allows to select one of the
+first 9 VDI fill styles.&nbsp;</p>
+
+<table border="0" cellpadding="2" width="100%" height="74">
+    <tr>
+        <td valign="bottom" width="20%" height="25"><h4
+        align="center">fill style selector</h4>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" height="37"><img
+        src="stylesel.gif" width="218" height="32"></td>
+    </tr>
+</table>
+
+<p>The selected style arrives as message in the one ACS window
+that possesses the global selection list. The format of the style
+message your application will get is defined in <a
+href="stylesel.h">stylesel.h</a>.</p>
+
+<p>An <font color="#00FF00">example code</font> is shown above
+together with the color selection example.&nbsp;</p>
+
+<p>The STYLE_MESSAGE structure contains the selected fill style
+and the interior as INT16. They can be directly used for
+vsf_style() and vsf_interior().</p>
+
+<p>Note: it might be not sufficient to set the style to 0, even
+in MD_REPLACE mode. For the special case of 0 as fill style you
+might need to explicitly set the hollow interior before
+drawing.&nbsp;</p>
+
+<p>Download: </p>
+
+<ul>
+    <li><a href="stylesel.h">C header file</a></li>
+    <li><a href="stylesel.am">style selection module</a></li>
+</ul>
+
+<hr>
+
+<h2><a name="config"></a>English Configuration Module</h2>
+
+<p>With ACS there usually come some modules that you can use in
+your applications. However I was missing an English AB_CFG.AM and
+translated it myself: &nbsp;</p>
+
+<table border="0" cellpadding="2" width="100%" height="74">
+    <tr>
+        <td valign="bottom" width="20%" height="25"><h4
+        align="center">configuration (of ACS application
+        behaviour) module</h4>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" height="37"><img
+        src="config.gif" width="242" height="192"></td>
+    </tr>
+</table>
+
+<p>You just load the module with Ash_module() and the user can
+adjust the dither settings for color resolutions with less than
+16 colors available. ACS will persistently save the user's
+settings, you have to program nothing.&nbsp; </p>
+
+<p>Download:</p>
+
+<ul>
+    <li><a href="config.am">configuration module</a></li>
+</ul>
+
+<p align="center">&nbsp;</p>
+
+<hr>
+
+<h2><a name="dither"></a>Dither Module</h2>
+
+<p>Once there came a dither module with ACS, called DITHER.AM.
+That dither module allowed to change the appearance of the 3D
+controls in low color resolutions (monochrome or 4 colors). 
+Unfortunately together with the new ACS 3 the module
+crashed. Since the sources seemed to be lost, I wrote a new one,
+with the 2 advantages that the <a href="#sources">sources</a> are
+available and it doesn't crash.</p>
+
+<table border="0" cellpadding="2" width="100%" height="74">
+    <tr>
+        <td valign="bottom" width="20%" height="25"><h4
+        align="center">dither module</h4>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" valign="top" height="37"><img
+        src="dither.gif" width="242" height="192"></td>
+    </tr>
+</table>
+
+<p>You just load the module with Ash_module() and the user can
+adjust the settings of your application. ACS will persistently
+save the user's settings, you have to program nothing.&nbsp; </p>
+
+<p>Download:</p>
+
+<ul>
+    <li><a href="dither.am">dither module</a></li>
+</ul>
+
+<hr>
+
+<p><a href="mailto:Harald.Rieder@imail.de">mailto:Harald.Rieder@imail.de</a>
+</p>
+</body>
+</html>

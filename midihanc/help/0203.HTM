@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>
+The Tuner Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0202.HTM"><img src="udo_lf.gif" alt="General"></a>
+<a href="0204.HTM"><img src="udo_rg.gif" alt="The Controller Window"></a>
+<hr>
+<h1><a name="The Tuner Window">2.3 The Tuner Window</a></h1>
+<p>Here you design your scales by tuning the 11 distances in relation
+to the harmonizing note. The scales are defined by <b>tables</b> that
+assign cent values to each distance, except the distance 0 which
+always has 0 cent and can not be modified. Pitch bend or Roland GS
+compatible scale tune messages are sent out to modify the tuning.
+</p>
+<p>Pitch bend messages consist of 2 data bytes (a data byte is <b>7
+bits</b> in the MIDI world). If you set up your synthesizer as
+described above for pitch bend mode, a single pitch bend step should
+be 1/(64*128) * 100 cent. Unfortunately most synthesizers through away
+the least significant data byte, thus leading to a pitch bend accuracy
+of 1/64 * 100 cent (This is still good enough, probably better than
+you can hear).
+</p>
+<p>The most important cent values are fortunately known by the MIDI
+Enhancer and can be retrieved with the &lt;=&lt;= and =&gt;=&gt;
+buttons. The &quot;fits&quot; field follows this convention:
+</p>
+<dl>
+<dt><b>starts with C:</b><dd> chromatic distance
+<dt><b>starts with M:</b><dd> meantone distance
+<dt><b>else:</b><dd> natural distance
+</dl>
+</p>
+<p>The wide slider allows fine and free adjustment of cent values.
+</p>
+<p>When you select a distance for being tuned, it is made hearable on
+the MIDI output. In scale tune mode, you will hear an example distance
+on the test channel. In pitch bend mode, test channel and test channel
++ 1 are used to make the interval hearable.
+</p>
+<p>You can define up to 4 tuning tables. Each table may be named. The
+reason for the low number of tables is, that you can select a table
+via MIDI controller 16. And even if the knob belonging to the
+controller does not have a scale, in a live performance you will be
+able to imagine 4 ranges by simply looking at the knob.
+</p>
+<p>With the &quot;Export&quot; and &quot;Import&quot; buttons you can
+load and save individual tables as human readable .txt files. You can
+also drag a file from a file manager and drop it onto the table's name
+field to import it.
+</p>
+<p>All buttons can also be reached from the keyboard, pressing
+additionally the Alternate key, the tables can be selected with
+Control plus 0..3.
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0202.HTM"><img src="udo_lf.gif" alt="General"></a>
+<a href="0204.HTM"><img src="udo_rg.gif" alt="The Controller Window"></a>
+</body>
+</html>

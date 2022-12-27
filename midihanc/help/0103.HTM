@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>
+What for and how ?
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0102.HTM"><img src="udo_lf.gif" alt="Disclaimer"></a>
+<a href="0104.HTM"><img src="udo_rg.gif" alt="Delivery"></a>
+<hr>
+<h1><a name="What for and how ?">1.3 What for and how ?</a></h1>
+<p>In the 18th century the equal tuning of musical instruments won
+through against the meantone tuning and against natural scales. Those
+sounded better but had a major disadvantage: they only allowed making
+music in a subset of the 12 keys. If you wanted to make music for
+example in F#, and your piano was tuned in C, you had to retune each
+single key before playing. Of course, most people restricted
+themselves to few keys, wherein their instruments sounded good. If you
+are a musician, you surely know the story about J. S. Bach's
+&quot;wohltemperiertes Klavier&quot; ...
+</p>
+<p>The MIDI Enhancer allows you to tune your instrument <b>while</b>
+you play it&nbsp;! Or another musician can tune while you play. The tuning
+is done by a single key press.
+</p>
+<p>The MIDI Enhancer therefore needs 2 input sources (via 1 MIDI
+cable):
+</p>
+<ul>
+<p><li> the notes played on the <b>input channel(s)</b> are modified
+with tuning information in the harmonizer and forwarded to up to 16
+output channels.
+</p>
+<p><li> the note played on the <b>control channel</b> (which
+normally is not an input channel) determines the tuning of the notes
+appearing on the output channels.
+</p>
+</ul>
+<p>The MIDI Enhancer herefore can be operated in 2 different modes:
+</p>
+<ol>
+<p><li> Pitch Bend. Notes are put out always on <b>all enabled</b>
+output channels, but per output channel at most 1 note at a time can
+be on. Therefore a maximum of 16 notes can be played simultaneously,
+the exceeding ones are lost. Why ? Because the MIDI Enhancer
+individually tunes each output channel by a different pitch bend. Each
+of the up to 16 output notes gets its individual pitch bend. The MIDI
+pitch bend information is common for all notes on a certain MIDI
+channel. So for e.g. 4 notes with different micro tuning you already
+need 4 separate MIDI channels. In pitch bend mode the pitch bend range
+must be adjusted to -100..+100 cent on each output channel. The MIDI
+Enhancer tries to set this up by sending pitch bend sensitivity
+messages. If your device does not understand these messages, you have
+to set it up manually.
+</p>
+<p><li> Scale Tune. GS compatible instruments understand so-called
+scale tune messages, thus allowing to adjust the pitch of each of the
+12 notes with one single MIDI message. Advantage: the MIDI Enhancer
+works mainly transparently. A synthesizer connected to the output of
+the MIDI Enhancer will behave rather similar as without MIDI Enhancer.
+It will not limit the number of notes sounding simultaneously.
+</p>
+</ol>
+<p>The most important differences between the 2 modes:
+</p>
+<blockquote>
+<p>
+<table border=1 frame=box>
+<p align=center>
+<tr><td align=left><b> </b></td><td align=left><b>Pitch Bend</b></td><td align=left><b>Scale Tune</b></td></tr>
+<tr><td align=left><b>Tuning Range</b></td><td align=left>-100..+100 cent</td><td align=left>-64..+63 cent</td></tr>
+<tr><td align=left><b>Accuracy</b></td><td align=left>1.56 cent</td><td align=left>1 cent</td></tr>
+<tr><td align=left><b>Message Size</b></td><td align=left>3 byte per note</td><td align=left>22 byte per scale</td></tr>
+<tr><td align=left><b>Program Changes</b></td><td align=left>replicated per outp. ch.</td><td align=left>transparent</td></tr>
+<tr><td align=left><b>Bank Selects</b></td><td align=left>replicated per outp. ch.</td><td align=left>transparent</td></tr>
+<tr><td align=left><b>Controller Changes</b></td><td align=left>replicated per outp. ch.</td><td align=left>transparent</td></tr>
+<tr><td align=left><b>Pitch Bend Messages</b></td><td align=left>thrown away</td><td align=left>transparent</td></tr>
+<tr><td align=left><b>Pitch Bend Range</b></td><td align=left>-100..+100 cent</td><td align=left>arbitrary</td></tr>
+<tr><td align=left><b>Sound</b></td><td align=left>all outp. channels equal</td><td align=left>arbitrary</td></tr>
+<tr><td align=left><b>Latency</b></td><td align=left>not hearable</td><td align=left>in automatic mode</td></tr>
+</table>
+</p>
+
+</blockquote>
+<hr>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0102.HTM"><img src="udo_lf.gif" alt="Disclaimer"></a>
+<a href="0104.HTM"><img src="udo_rg.gif" alt="Delivery"></a>
+</body>
+</html>

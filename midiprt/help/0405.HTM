@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>
+WDIALOG on Atari TOS
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="04.HTM"><img src="udo_up.gif" alt="Known Errors"></a>
+<a href="0404.HTM"><img src="udo_lf.gif" alt="ST Emulator"></a>
+<a href="05.HTM"><img src="udo_rg.gif" alt="History"></a>
+<hr>
+<h1><a name="WDIALOG on Atari TOS">4.5 WDIALOG on Atari TOS</a></h1>
+<p>The print dialog inits the GEM metafile path with &quot;*.*&quot;,
+therefore selection of a file outside the current directory is
+possible only after change of the drive.
+</p>
+<p>Further effects observed together with the last English ACS3 beta
+were:
+</p>
+<ul>
+<li> Print dialog works on a <a href="0404.HTM">ST Emulator</a> / Windows 98 installation.
+<li> Works not on a Magic 6.1 / Falcon installation (pdlg_create
+returns always NULL). Behaviour is equal for MIDI File Printer and the
+example programs that come together with WDIALOG.
+<li> Crashes on a TOS 4.04 on Falcon installation (inside
+aes/pdlg_create). The WDIALOG examples do NOT crash.
+<li> Print dialog hangs on a <a href="0404.HTM">ST Emulator</a> / Windows 2000 installation.
+</ul>
+</p>
+<p>If you get too many undesired effects together with WDIALOG,
+select &quot;Use own dialogs&quot; in the &quot;Dialogs&quot; menu.
+</p>
+<hr>
+<a href="04.HTM"><img src="udo_up.gif" alt="Known Errors"></a>
+<a href="0404.HTM"><img src="udo_lf.gif" alt="ST Emulator"></a>
+<a href="05.HTM"><img src="udo_rg.gif" alt="History"></a>
+</body>
+</html>

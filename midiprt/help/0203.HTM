@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>
+The Information Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0202.HTM"><img src="udo_lf.gif" alt="The Desktop"></a>
+<a href="0204.HTM"><img src="udo_rg.gif" alt="The Parameters Window"></a>
+<hr>
+<h1><a name="The Information Window">2.3 The Information Window</a></h1>
+<p>This windows shows information from and about the MIDI file of the
+one document window that was most recently on top.
+</p>
+<p>When there is no current document window, e.g. no MIDI file at all
+is loaded, the values are drawn in a way indicating that they are not
+valid.
+</p>
+<p>The values have the following meanings:
+</p>
+<ul>
+<li> File size: size of the file on disk in KByte (Atari) or Byte
+(Windows).
+<li> Size in memory: the standard MIDI file format is not suitable for
+fast access. The MIDI file printer therefore uses an own format which
+consumes more RAM. Here you see how much RAM is consumed by the
+transformed file.
+<li> MIDI file type: I tested the MIDI File Printer with type 0 and 1
+standard MIDI files. These are the most widely spread types (I never
+ever saw a type 2 file). Type 0 contains 1 single track. Type 1 may
+contain more than 1 track, there usually track 0 is reserved for
+timing information.
+<li> No. of tracks: number of tracks that have been found in the MIDI
+file. Note that in general not every track will contain note events.
+<li> Ticks per beat: time resolution of the MIDI standard file in case
+of non-SMTPE format.
+<li> SMPTE: SMPTE value. The SMPTE timing format is not supported by
+the MIDI File Printer!
+<li> Ticks per frame: time resolution in case of SMPTE format.
+<li> Initial tempo: this value comes from the first tempo meta event
+found in the MIDI file.
+<li> Time signature: from the first time signature meta event.
+<li> Key signature: from the first key signature meta event. Major and
+minor are indicated by &quot;maj&quot; and &quot;min&quot;,
+respectively.
+<li> <a href="0101.HTM">Copyright</a> Notice: the first copyright notice found in the MIDI
+file. On Atari TOS the copyright notice is shown in a separate window
+after pressing a button, which is disabled if no copyright notice was
+found.
+</ul>
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0202.HTM"><img src="udo_lf.gif" alt="The Desktop"></a>
+<a href="0204.HTM"><img src="udo_rg.gif" alt="The Parameters Window"></a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>
+The Monitor Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0204.HTM"><img src="udo_lf.gif" alt="The Controller Window"></a>
+<a href="0206.HTM"><img src="udo_rg.gif" alt="The Enter/Exit Strings Window"></a>
+<hr>
+<h1><a name="The Monitor Window">2.5 The Monitor Window</a></h1>
+<p>If you do not trust the MIDI enhancer, open the monitor window. It
+will monitor the harmonizing note and the pitch offset. The pitch
+offset is added to all notes equally. If it enters a critical range
+(which can lead to errors), it will be drawn light red or inverted.
+</p>
+<p>It also shows you MIDI errors that ocurred. If you play very fast
+(many notes together) and/or send many controller changes, it's easy
+to produce errors. The limiting part is the MIDI output interface of
+your computer. The MIDI Enhancer in general produces more MIDI
+messages on its output than it receives on its input. If on the input
+events appear with maximum MIDI speed (31250 baud), the output will
+already be overloaded. A typical error, or more a warning, is
+&quot;note overflow&quot; in pitch bend mode, which occurs when you
+press more keys on the input channels at a time than output channels
+are enabled. In that case the MIDI Enhancer itself switches the oldest
+note(s) off to limit the number of output notes (= channels in pitch
+bend mode).
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0204.HTM"><img src="udo_lf.gif" alt="The Controller Window"></a>
+<a href="0206.HTM"><img src="udo_rg.gif" alt="The Enter/Exit Strings Window"></a>
+</body>
+</html>

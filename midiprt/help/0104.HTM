@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>
+How can you read the new music notation ?
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0103.HTM"><img src="udo_lf.gif" alt="What for and how ?"></a>
+<a href="0105.HTM"><img src="udo_rg.gif" alt="Restrictions"></a>
+<hr>
+<h1><a name="How can you read the new music notation ?">1.4 How can you read the new music notation ?</a></h1>
+<p>Normally you have 3 or more dimensions to be represented by a
+music notation:
+</p>
+<ol>
+<li> time (bar)
+<li> frequency (height)
+<li> intensity (volume)
+<li> ...
+</ol>
+</p>
+<p>The new notation uses a 2 dim. coordinate system:
+</p>
+<blockquote>
+<pre>
+log(frequency)
+
+ ^       (mode: &quot;Mix&quot;, 6 horizontal lines)
+ |
+ |   |------------|------------|------------|---
+ |   |            |            |            |
+ |   |------------|------------|------------|[2]
+ |   |            |            |         [1]|
+ | 4 |============|============|======[0]===|===
+ |   |            |            |   [B]      |
+ |   |------------|------------|[A]---------|---
+ |   |            |         [9]|            |
+ |   |------------|------[8]---|------------|---
+ |   |            |   [7]      |            |
+ |   |------------|[6]---------|------------|---
+ |   |         [5]|            |            |
+ |   |------[4]---|------------|------------|---
+ |   |   [3]      |            |            |
+ |   |[2]---------|------------|------------|---
+ |
+ |
+ +-----------------------------------------------&gt; time
+</pre>
+</p>
+<p>The diagram shows a chromatic scale, beginning with a 2 (=D) and
+ending with a 2 (=D) one dodecime (=octave) higher. All notes have the
+same duration. Succeeding notes have the same frequency ratio in this
+example.
+</p>
+</blockquote>
+<p>This means: the note &quot;height&quot; (y-direction) is a linear
+function of the logarithm of its (basic) frequency.
+</p>
+<p>For the common notation this also holds APPROXIMATELY. The
+difference is &quot;approximately&quot;. Furthermore, the common
+notation makes use of sharps and flats as frequency modifiers. All
+that has historical reasons, but that is another story ...
+</p>
+<p>In the new notation, the note duration in time is proportional to
+its extension in horizontal direction. You need not to learn the
+meaning of different necks and tails and whatsoever.
+</p>
+<p>The volume is proportional to the note extension in vertical
+direction. Therefore you will not find any pp (pianissimo) or mf
+(mezzoforte) signs or anything like that. And you do not have to ask
+yourself whether a note in pp carrying a ^ is louder than a note in p
+or not.
+</p>
+<p>You will not find any of the strange things of the common notation
+in the new notation, nor will you find them in the MIDI file standard.
+The reason is, that <b>THESE RELICTS ARE NOT NECESSARY IN A MUSIC
+NOTATION</b> and that <b>THEY ARE NOT NECESSARY FOR ACCURATELY
+STORING MUSIC INFORMATION</b> !!!
+</p>
+<p>If you are further interested in modern notations:
+</p>
+<pre>
+  Music Notation Modernization Association
+  P.O. Box 241
+  Kirksville
+  MO 63501
+
+  U.S.A.
+
+  (and also in the WWW)
+</pre>
+</p>
+<hr>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0103.HTM"><img src="udo_lf.gif" alt="What for and how ?"></a>
+<a href="0105.HTM"><img src="udo_rg.gif" alt="Restrictions"></a>
+</body>
+</html>

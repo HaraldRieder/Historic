@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>
+The Velocities Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0207.HTM"><img src="udo_lf.gif" alt="The Program Change Mapper Window"></a>
+<a href="020801.HTM"><img src="udo_rg.gif" alt="linear with fixed minimum"></a>
+<hr>
+<h1><a name="The Velocities Window">2.8 The Velocities Window</a></h1>
+<p>Here you can modify the note-on velocities of individual notes,
+i.e. how the note-on velocity of a note received on the MIDI input of
+the computer is transformed before it is sent to the MIDI output. The
+note-on velocity usually controls the volume an/or cutoff frequency of
+a sound. Purpose: correction of not 100% balanced keyboards and
+adaptation of keyboards to expanders.
+</p>
+<ul>
+<p><li> &quot;linear&quot; maps a note-on velocity on the inputs
+linear to the outputs
+</p>
+<p><li> &quot;quadratic&quot; maps quadratically. I.e. you have to
+press the keys more hard for higher note-on velocity values on the
+outputs.
+</p>
+</ul>
+<ul>
+<p><li> &quot;fix minimum&quot; means that a velocity of 0 on an
+input channel will always be mapped to a velocity of 0 on an output
+channel.
+</p>
+<p><li> &quot;fix maximum&quot; means that a velocity of 127 on an
+input channel will always be mapped to a velocity of 127 on an output
+channel.
+</p>
+</ul>
+<p>The <b>slope</b> of the mapping function can be adjusted per note
+with the &quot;-&quot; and &quot;+&quot; buttons. All notes together
+can be selected/deselected with the &quot;all&quot; button.
+</p>
+<p>Press &quot;Test&quot; to test your volumes mappings. Press any
+key (on the computer keyboard) to exit test mode.
+</p>
+<p>The following diagrams explain which transformation curves can be
+achieved:
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0207.HTM"><img src="udo_lf.gif" alt="The Program Change Mapper Window"></a>
+<a href="020801.HTM"><img src="udo_rg.gif" alt="linear with fixed minimum"></a>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>
+The Scheme Editor
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0206.HTM"><img src="udo_lf.gif" alt="The Document Window"></a>
+<a href="0208.HTM"><img src="udo_rg.gif" alt="Profiling"></a>
+<hr>
+<h1><a name="The Scheme Editor">2.7 The Scheme Editor</a></h1>
+<p>On Windows start the separate program file SCHMEDIT.EXE. On Atari
+TOS click on the color scheme in the parameters window to reach the
+scheme editor.
+</p>
+<p>The scheme editor allows you to modify or create a new color
+scheme. The scheme's file name is shown in the info line or title bar.
+If there is no file name, the scheme was copied from a fix coded
+default scheme.
+</p>
+<p>The following objects accept different colors and/or fill styles:
+</p>
+<blockquote>
+<p>
+<table border=1 frame=box>
+<p align=center>
+<tr><td align=left><b>Object</b></td><td align=left><b>Color</b></td><td align=left><b>Fill Style</b></td></tr>
+<tr><td align=left>note body</td><td align=left>x</td><td align=left>x</td></tr>
+<tr><td align=left>note ends, i.e. head and tail</td><td align=left>x</td><td align=left>x</td></tr>
+<tr><td align=left>dodecime numbers and lines</td><td align=left>x</td><td align=left>x, empty = thick line</td></tr>
+<tr><td align=left>track labels, bar numbers &amp; lines</td><td align=left>x</td><td align=left></td></tr>
+<tr><td align=left>staff background</td><td align=left>x</td><td align=left>x</td></tr>
+</table>
+</p>
+
+</blockquote>
+<p>On Atari TOS together with the first opening of the scheme editor
+window a color selector and a fill style selector window open. On
+Windows the corresponding controls are integreated in the scheme
+editor window.
+</p>
+<p>When objects are selected, they will accept new colors when
+clicking on a color or fill style button (or when dragging them onto
+such a button).
+</p>
+<p>Selected objects get a dashed border line. There are different
+ways to select objects of the bottom right dodecime example:
+</p>
+<ul>
+<li> click on 1 object =&gt; the object will be selected.
+<li> click on 1 object holding down Shift =&gt; the object will be
+added to the selection (Atari TOS).
+<li> click on &quot;all&quot; =&gt; all objects of the corresponding
+type will be selected or deselected.
+<li> click on &quot;7+5&quot; =&gt; 7 or 5 note bodies and ends will
+be selected and the others not - like the black and white keys on a
+traditional piano keyboard.
+<li> click on &quot;6+6&quot; =&gt; 6 note bodies and ends will be
+selected and the others not - like the black and white keys on my
+chromatic keyboard.
+</ul>
+</p>
+<p>Hint: if you want to select 6 note ends but not the bodies, click
+on &quot;6+6&quot; to select 6 note ends and bodies, then on
+&quot;all&quot; in the &quot;body&quot; group to deselect the bodies.
+Note that when the heads are drawn selected, the tails are meant, too.
+</p>
+<p>The &quot;View&quot; control lets you select one of the 11
+dodecimes to be shown in the example. It does not manipulate any data.
+</p>
+<p>Furthermore there are functions that manipulate colors and fill
+styles of all objects of a certain type:
+</p>
+<ul>
+<li> rotate: the objects cyclically exchange their fill styles and
+colors.
+<li> swap: the objects exchange their fill styles and colors as if
+they were mirrored at the center.
+</ul>
+</p>
+<p>On Atari TOS store the modified scheme to update the document
+window with it.
+</p>
+<p>Hint: the colors are stored as 5+5+5 bit red-greed-blue values in
+the scheme files. In screen resolutions with less than 32768 colors
+some color schemes might not be displayed correctly. The MIDI File
+Printer then uses a nearest color dithering. Always edit schemes in a
+resolution with sufficient colors! On Windows only high and true color
+modes are supported!
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0206.HTM"><img src="udo_lf.gif" alt="The Document Window"></a>
+<a href="0208.HTM"><img src="udo_rg.gif" alt="Profiling"></a>
+</body>
+</html>

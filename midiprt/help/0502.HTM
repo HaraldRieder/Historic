@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>
+Version 1.0
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="05.HTM"><img src="udo_up.gif" alt="History"></a>
+<a href="0501.HTM"><img src="udo_lf.gif" alt="Version 0.2 (1993)"></a>
+<a href="0503.HTM"><img src="udo_rg.gif" alt="Version 1.1"></a>
+<hr>
+<h1><a name="Version 1.0">5.2 Version 1.0</a></h1>
+<p>Corrected Faults:
+</p>
+<ul>
+<li> &quot;exit&quot; menu entry disappeared when selected (in certain
+screen resolutions). Now titled &quot;quit&quot;, which is more usual.
+<li> when the last note system only contained note off events, the
+y-sizes of the tracks were calculated wrongly. Now they are calculated
+correctly.
+<li> when using files with more than 9 tracks, a wrong track index
+could be displayed in the filter window.
+</ul>
+</p>
+<p>New Features:
+</p>
+<ul>
+<li> more functions can be triggered from keyboard now.
+<li> ACS modules can be loaded.
+<li> V1.0 recognizes V0.2 parameter files and loads them correctly.
+<li> the desktop has got a table-cloth.
+<li> a program variant for computers with at least 68020 CPU and with
+FPU is also delivered.
+<li> MIDI File Printer now allocates memory in blocks of at least 32
+KByte. The GEMDOS memory management only can administer a limited
+number of memory blocks. Originally I intended to no more load the
+printer driver and fonts at the start of MIDI_PRT but directly after
+the &quot;go&quot; button in the printer window had been pressed. This
+would have been a good new feature, since MIDI_PRT then would not have
+prevented other programs from printing in multitasking environments.
+However this lead to severe problems with the memory management.
+GEMDOS gave away memory blocks to 2 users, first to MIDI_PRT and then
+to GDOS. So, suddenly the memory blocks used by MIDI_PRT were written
+by GDOS. I could not find a work around for this problem, the only
+hope is that Atari implements a better memory management.
+<li> &quot;info&quot; entry in the menu bar of the desktop.
+<li> printable area corresponds to inner area of the display window.
+No more dashed lines necessary.
+<li> turning over pages is possible if the display window or the info
+window is topped.
+<li> changing filter settings immediately updates the display window
+(&quot;return&quot; needs no more to be presssed).
+<li> changing parameters immediately updates the display window
+(&quot;return&quot; needs no more to be pressed).
+<li> note color, background pattern and color now can be selected,
+too.
+<li> headline style is selectable. You do not need to install extra
+GDOS fonts if the quality with these VDI attributes is sufficient for
+you.
+<li> &quot;save ...&quot; and &quot;load ...&quot; entries in the menu
+of the parameter window make it possible to select a file name for the
+parameter file.
+<li> zooming also reachable via buttons in the drawer window.
+<li> page field in the drawer window no more editable.
+<li> more than 1 metafiles can be generated at the same time.
+<li> SCRAP.GEM is generated to support the &quot;paste&quot; commands
+of other programs.
+<li> the page currently put out is displayed.
+</ul>
+</p>
+<hr>
+<a href="05.HTM"><img src="udo_up.gif" alt="History"></a>
+<a href="0501.HTM"><img src="udo_lf.gif" alt="Version 0.2 (1993)"></a>
+<a href="0503.HTM"><img src="udo_rg.gif" alt="Version 1.1"></a>
+</body>
+</html>

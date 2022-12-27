@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>
+ST Emulator
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="04.HTM"><img src="udo_up.gif" alt="Known Errors"></a>
+<a href="0403.HTM"><img src="udo_lf.gif" alt="Speedo GDOS on Atari TOS"></a>
+<a href="0405.HTM"><img src="udo_rg.gif" alt="WDIALOG on Atari TOS"></a>
+<hr>
+<h1><a name="ST Emulator">4.4 ST Emulator</a></h1>
+<p>With ST Emulator 1.6 several effects could be observed, that could
+not be reproduced on Magic 6 or TOS 4:
+</p>
+<ul>
+<li> More than 20 points font size can not be set.
+<li> 3D ellipses are not correctly drawn (dashed upper line is wrong)
+in palette modes, but are drawn correctly in direct color mode.
+<li> vst_height() leads to wrong results when printing with the GDOS
+emulation. Therefore the MIDI file printers uses vst_point() only.
+(Also some metafile viewers seem to have problems with vst_height().)
+<li> The activation of the &quot;hot close box&quot; window flag leads
+to pixel garbage on the screen. Therefore this flag is always off.
+</ul>
+</p>
+<hr>
+<a href="04.HTM"><img src="udo_up.gif" alt="Known Errors"></a>
+<a href="0403.HTM"><img src="udo_lf.gif" alt="Speedo GDOS on Atari TOS"></a>
+<a href="0405.HTM"><img src="udo_rg.gif" alt="WDIALOG on Atari TOS"></a>
+</body>
+</html>

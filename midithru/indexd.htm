@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Mad Harry's MIDI Through</title>
+</head>
+
+<body>
+
+<h1>Mad Harry's MIDI Through V1.0</h1>
+
+<ul>
+    <li>läuft auf Palm OS ab Version 3.</li>
+    <li>getestet unter Palm OS 3.5 auf Palm m105.</li>
+    <li>benötigt MIDI In &amp; Out an der seriellen
+        Schnittstelle bzw. dem RS-232 Teil des Universal
+        Connector (diverse Bauanleitungen dazu im Internet oder
+        unten).</li>
+</ul>
+
+<p><img src="midithru.gif" align="right" border="1" hspace="10"
+vspace="10" width="160" height="160">Zur Installation mit dem
+Palm Installer die Datei midithru.prc installieren.</p>
+
+<p>Das Program macht nichts weiter als Daten vom Eingang der
+seriellen Schnittstelle zu lesen und sofort an deren Ausgang
+weiterzuleiten. Die Baud Rate kann eingestellt werden. Die Anzahl
+Datenbits ist fest auf 8, die Anzahl der Stopbits auf 1
+eingestellt. Die Parität ist aus. </p>
+
+<p>Ein einfacher Monitor zeigt empfangene Bytes als
+Hexadezimal-Zahlen an. Der Monitor ist zur
+Geschwindigkeitsoptimierung abschaltbar. Das Programm wurde aber
+ohnehin auf maximalen Durchsatz hin optimiert. Eine chromatische
+Testsequenz, die je MIDI Kanal eine 1/2-sekündige Note sendet,
+kann ausgelöst werden.Sende- und Empfangsfehler auf der
+seriellen Schnittstellen werden angezeigt. Alle Einstellungen
+werden persistent gespeichert.</p>
+
+<p>Dieses Programm stellt eine Vorstudie zur Portierung des MIDI
+Enhancers von TOS nach Palm OS dar.</p>
+
+<p>Hier ist: </p>
+
+<ul>
+    <li>die Zip-Datei zum <a href="midithru.zip">Download</a>
+        (inklusive Quelltexten für PRC-Tools)</li>
+</ul>
+
+<hr>
+
+<h1>Mein einfaches MIDI-Interface für den Palm</h1>
+
+<p><img src="midipalm.gif" align="right" border="1" hspace="10"
+vspace="10" width="563" height="424">Diese Schaltung arbeitet
+zuverlässig mit meinem Palm m105 zusammen. Die 6 Bauteile
+passten in einen normalen 9-poligen RS-232 Stecker. </p>
+
+<p>Als Diode geht quasi jeder Typ. Wenn der MIDI Ausgang des
+Synthesizers schwach ist, so kann der 220 Ohm Widerstand auf 120
+Ohm verringert werden. Den 680 Ohm Wert fand ich experimentell
+heraus. Statt dessen können auch 900 Ohm funktionieren, was
+etwas Batterien spart. 960 Ohm führen allerdings zu
+Empfangsfehlern auf der seriellen Schnittstelle des m105. Auch
+der Wert des 330 Ohm Widerstands lässt sich eventuell erhöhen,
+um den Energieverbrauch zu optimieren. Der Typ des Optokoppler
+scheint relativ unkritisch zu sein.</p>
+</body>
+</html>

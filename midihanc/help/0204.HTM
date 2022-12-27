@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>
+The Controller Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0203.HTM"><img src="udo_lf.gif" alt="The Tuner Window"></a>
+<a href="0205.HTM"><img src="udo_rg.gif" alt="The Monitor Window"></a>
+<hr>
+<h1><a name="The Controller Window">2.4 The Controller Window</a></h1>
+<p>You can select one or more of the 16 MIDI channels, labelled with
+0..F, as input sources. They will be modified by the control channel.
+Only one channel can be control channel. The harmonizing channel
+should not be an input channel, however, for first experiments you
+might choose this.
+</p>
+<p>In pitch bend mode you also can enable each of the 16 output
+channels individually. If your synthesizer reserves channel 10 for the
+drums, disable the red arrow labelled with 9.
+</p>
+<p>The tuning table you already chose in the tuner window. With the
+pythagorean tuning you might hear no difference to before, except one
+ugly 7. With the clean tables you might feel, that some major and
+minor chords sound compact and good, others not. All the new distances
+and chords might sound quite unused to your ears.
+</p>
+<p>If you want to play a piece in a fixed key, you can select a key
+with the corresponding cycle button. &quot;none&quot; means &quot;no
+key selected&quot;. You need not to select any key. The MIDI Enhancer
+will then work in an &quot;integrating&quot; mode. Pitch offset
+overflows however can be avoided best by selecting a key.
+</p>
+<p>Harmonizer Modes:
+</p>
+<ul>
+<p><li> &quot;autostart&quot; leads to an immediate MIDI processing
+after program start. Tuner and Controller windows are opened in a way
+that you can read the selected table and the controller settings.
+</p>
+<p><li> &quot;throu&quot; disables the harmonizer. All MIDI signals
+are forwarded from input to output without modification.
+</p>
+<p><li> &quot;auto&quot; activates automatic mode. The harmonizer
+tries to derive an optimum tuning for new notes from the notes already
+played. On principle, this does not succeed very well. To find the
+optimum tuning, the harmonizer would have to know, how the piece will
+evolve in future. But, in contrast to a human interpreter, it only
+knows the past. Try to look at this as a somehow experimental feature.
+If the tuning &quot;slides away&quot; too fast, increase the
+&quot;smoothing&quot; parameter. The MIDI Enhancer tries to reach a
+clean tuning in this mode.
+</p>
+<p><li> if &quot;hold&quot; is checked, always the last harmonizing
+note played on the control channel will be held. If it is not checked,
+you can switch off the harmonizing by not playing any notes on the
+harmonizing channel.
+</p>
+</ul>
+<p>Getting started:
+</p>
+<ul>
+<li> Choose a table with clean tuning (in the tuner window).
+<li> Do not enter any valid key.
+<li> Do not check &quot;hold&quot;.
+<li> Press the &quot;start&quot; button !
+</ul>
+</p>
+<blockquote>
+<p>Play a major 0 chord on an input channel. It should sound as
+usual. Now additionally play a 0 on the control channel. Do you hear
+the difference ? A major 7 and a major 5 will sound good like the
+major 0. Play a major 2 together with a 0 harmonizing note. Doesn't
+this sound ugly ? You have to reharmonize by playing e.g. a 7, then
+the major 2 sounds good again. Try a little bit ! Stop the harmonizer
+by any key press (on the computer keyboard).
+</p>
+</blockquote>
+<p>If you want to enter a certain key, you need some experience. A 0
+should be the best choice for most major 0 pieces. For a minor 0
+piece, a 9 might be the better choice. Don't worry, if you have to
+learn when and how to change the harmonizing note.
+</p>
+<p>For the MIDI experts:
+</p>
+<blockquote>
+<p>With the controller 16 on the control channel you can select a
+tuning table. With the controller 17 you determine the key. Finally,
+in the automatic mode controller 18 selects the smoothing time. Thus,
+you need not to stand up and walk to your computer. Program changes
+and foot switch controller changes appear replicated on each of the
+ouput channels in pitch bend mode. After one program change command
+the MIDI enhancer will change your synthesizer sounds on all enabled
+output channels. In pitch bend mode, granularities of continous
+controllers are first reduced by the MIDI Enhancer and then the less
+controller change commands are forwarded to all enabled output
+channels. Thus, all controllers will work, but not as fine as usual
+(because of the limited MIDI bandwidth). Pitch bend will not work in
+pitch bend mode. Channel pressure and bank selects should be
+replicated in pitch bend mode, but since my keyboard does not send
+them, these features were not tested.
+</p>
+</blockquote>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI Enhancer"></a>
+<a href="0203.HTM"><img src="udo_lf.gif" alt="The Tuner Window"></a>
+<a href="0205.HTM"><img src="udo_rg.gif" alt="The Monitor Window"></a>
+</body>
+</html>

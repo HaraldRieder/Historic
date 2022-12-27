@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Mad Harry's MIDI Through</title>
+</head>
+
+<body>
+
+<h1>Mad Harry's MIDI Through V1.0</h1>
+
+<ul>
+    <li>runs on Palm OS version 3 or higher.</li>
+    <li>tested on Palm OS 3.5 and Palm m105.</li>
+    <li>needs MIDI In &amp; Out at the serial interface or the
+        RS-232 part of the universal connector (several assembly
+        instructions in the WWW or below).</li>
+</ul>
+
+<p><img src="midithru.gif" align="right" border="1" hspace="10"
+vspace="10" width="160" height="160">For installation install the
+file midithru.prc with the Palm Installer.</p>
+
+<p>The application simply forwards data from the serial
+interface's input to its output. The baud rate can be adjusted.
+The number of data bits is fixed to 8, the number of stop bits to
+1. Parity is off. </p>
+
+<p>A simple monitor shows the bytes received as hexadecimal
+numbers. For performance optimization the monitor can be
+disabled. However the application was optimized for maximum
+throuput either. A chromatic test sequence consisting of one
+half-second long note per MIDI channel can be triggered. Receive
+and send errors on the serial interface are indicated. All
+settings are stored persitently.</p>
+
+<p>This application is a pilot project for porting the MIDI
+Enhancer from TOS to Palm OS.</p>
+
+<p>Here is: </p>
+
+<ul>
+    <li>the zip file for <a href="midithru.zip">download</a>
+        (incl. sources for PRC tools)</li>
+</ul>
+
+<hr>
+
+<h1>My simple MIDI interface for the Palm</h1>
+
+<p><img src="midipalm.gif" align="right" border="1" hspace="10"
+vspace="10" width="563" height="424">This circuit works reliably
+with my Palm m105. The 6 parts fitted into a standard 9 pin
+RS-232 jack.</p>
+
+<p>For the diodes you can take nearly any type. If your synth's
+MIDI out is weak, you may decrease the 220 Ohm resistor down to
+120 Ohm. The 680 Ohm resistor I found out experimentally. 900 Ohm
+may work also at its place, saving a little bit battery power.
+960 Ohm lead to receive errors on the m105's serial interface.You
+also may try to increase the 330 Ohm resistor to optimize power
+consumption. The exact type of the optocoupler seems not to be
+critical.</p>
+</body>
+</html>

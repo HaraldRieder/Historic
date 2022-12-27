@@ -1,0 +1,342 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="Description"
+content="Rational Instruments and Tools for Making Music">
+<meta name="Keywords"
+content="MIDI, music, keyboard, notation, inventor, microtonal">
+<meta name="Author" content="Harald Rieder, Stuttgart, Germany">
+<meta name="Publisher"
+content="Harald Rieder, Stuttgart, Germany">
+<meta name="Copyright"
+content="Harald Rieder, Stuttgart, Germany">
+<meta name="Content-language" content="en">
+<meta name="Page-topic" content="music">
+<meta name="Page-type" content="private">
+<meta name="Audience" content="musicians">
+<meta name="Robots" content="INDEX,FOLLOW">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Mad Harry's Music Page</title>
+</head>
+
+<body>
+
+<h1 align="center">ToDo List MIDI File Printer 4.0 for TOS</h1>
+
+<p align="center">last update: 2004 April 1 (no joke!)</p>
+
+<table border="1">
+    <tr>
+        <td><h3>Item</h3>
+        </td>
+        <td><h3>TOS 4</h3>
+        </td>
+        <td><h3>Magic 6</h3>
+        </td>
+        <td><h3>ST Emu. 1.6</h3>
+        </td>
+        <td><h3>Status</h3>
+        </td>
+        <td><h3>Release<br>
+        relevant</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>File selection dialog displays &quot;*.mi*&quot; mask
+        even on systems with only upper case file names. Then no
+        file appears in the selection list. The mask first must
+        be changed manually.</td>
+        <td align="center">x </td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td>Should be solved in ACS. Currently I use the <strong>workaround</strong>
+        that the user can select between upper case and lower
+        case extensions as global option of the application (in
+        the main menu). Still present on 2002 June 3.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>pdlg_create() returns NULL on Magic (but font
+        selector works)</td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td align="center">- </td>
+        <td>WDIALOG examples do not work. Papyrus print settings
+        say &quot;wrong AES call&quot;. <strong>Bad Magic/NVDI
+        installation ? </strong></td>
+        <td>&nbsp; </td>
+    </tr>
+    <tr>
+        <td>Af_fileselect() and &quot;1,2,3,4,5\0&quot; leads to
+        &quot;*.1,*.2,*.3,&quot;</td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>Still present on 2002 June 3. <strong>Workaround:</strong>
+        use only *.mi* and *.MI*, selectable at user interface.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Af_select() and Af_fileselect() treat extension
+        differently. </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>ACS 3 beta error (my opinion). <strong>Implement
+        workaround:</strong> use Af_fileselect() for parameter
+        files despite the overhead for the linear list.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Ash_print() crashes (before and after migration to
+        new 3D menus).</td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">?</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>New effect of ACS 3 beta from 2002 March 14. Formerly
+        it worked. Stack: aes, pdlg_cre, print, call_click, ...<br>
+        <strong>Workaround</strong>: direct call of pdlg_do(),
+        which works. Modal Ash_font() also crashed after several
+        calls with &quot;Set&quot;, &quot;OK&quot; and
+        &quot;Cancel&quot; actions (illegal instruction).<p>New
+        effect of English ACS 3 beta from 2003 October:
+        pdlg_create() crashes on TOS 4. WDIALOG example programs
+        work.</p>
+        <p><strong>Workaround</strong>: own print dialog.</p>
+        </td>
+        <td>&nbsp; </td>
+    </tr>
+    <tr>
+        <td>Modal Ash_font() should call fnts_create() only once,
+        because potentially time consuming.</td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><strong>Workaround</strong>: direct call of
+        fnts_do(), fnts_delete() only when AS_TERM arrives.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>More than 20 points font size can not be set.</td>
+        <td align="center">-</td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td>Ash_font() is called. Error in ST Emu or TOS 2 ? <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>button not set in A_FontSel after modal call of
+        Ash_font() =&gt; &quot;Cancel&quot; and &quot;OK&quot;
+        cannot be distinguished.</td>
+        <td align="center">?</td>
+        <td align="center">?</td>
+        <td align="center">x </td>
+        <td><strong>Workaround</strong>: direct call of
+        fnts_do().</td>
+        <td>&nbsp; </td>
+    </tr>
+    <tr>
+        <td>Modal Ash_print() and Ash_font() windows do not
+        redraw window content after clicking outside modal
+        window.</td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">?</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><strong>Workaround:</strong> pdlg_...() and
+        fnts_...() called directly.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>3D ellipses are not correctly drawn (dashed upper
+        line is wrong) in palette modes, but are drawn correctly
+        in direct color mode.</td>
+        <td align="center">- </td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td>Probably an error in the v_ellarc() implementation of
+        ST Emulator. Are also too small on ST Emulator when
+        radius is small. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>IP_SOLID wrong in vdi.h of ACS 3 package.&nbsp;</td>
+        <td align="center">x </td>
+        <td align="center">x </td>
+        <td align="center">x </td>
+        <td><strong>Workaround:</strong> value 8 is used hard
+        coded.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>GEM metafiles: the print dialog inits metafile path
+        with &quot;*.*&quot;, therefore selection of a file
+        outside the current directory is possible only after
+        change of the drive.</td>
+        <td align="center">x </td>
+        <td align="center">? </td>
+        <td align="center">- </td>
+        <td>Is an error of WDIALOG. To be tested on Magic.<strong>
+        Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>v_opnprn() of ACS 3: not clear, what the metafile
+        parameter does.</td>
+        <td align="center">x </td>
+        <td align="center">x </td>
+        <td align="center">- </td>
+        <td>It seems that it has no effect, while vm_... has. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Contents of windows are drawn twice when opened
+        during ACS init.&nbsp;</td>
+        <td align="center">? </td>
+        <td align="center">? </td>
+        <td align="center">x </td>
+        <td>Only when started out of Pure C debugger. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Busy bee after startup of the program.</td>
+        <td align="center">- </td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td>Only when started out of Pure C. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Awi_obchange() for check boxes and radio buttons does
+        not work after undisabling them.</td>
+        <td align="center">x </td>
+        <td align="center">? </td>
+        <td align="center">x </td>
+        <td>A second Awi_obchange() is necessary. <strong>Workaround:</strong>
+        I use Awi_obredraw() instead. Is this an ACS error ? </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Check boxes and radio buttons do not bubble.</td>
+        <td align="center">- </td>
+        <td align="center">- </td>
+        <td align="center">x </td>
+        <td>This is probably an error in ST Emulator or the TOS 2
+        it uses. Bubble help of 3D buttons and sliders works. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Selected and not selected radio buttons are drawn in
+        the same way in direct color mode.</td>
+        <td align="center"><p align="center">-</p>
+        </td>
+        <td align="center">-</td>
+        <td align="center">x</td>
+        <td>ST Emulator or TOS 2 specific bug. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Activation of &quot;hot close box&quot; in ACS editor
+        leads to pixel garbage inside window.</td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><strong>Workaround:</strong> hot close boxes are now
+        all deactivated. Error still present on 2002 June 3.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Add toolbar / remove toolbar sequences may decrease
+        main window height.</td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>TOS 2 or ST Emulator fault ? <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>DATEI2.AM crashes when copying a file (English:
+        FILEMANA.AM).</td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>Recompiled and linked with ACS 2.3 libraries. Works
+        now, but not 100% stable. <strong>Ignore!</strong></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Menus with more than 20 entries can not be edited and
+        not deleted any more with ACS builder. Also not with TAB
+        key.</td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><strong>Workaround: </strong>split into 2 menues
+        (Dialogs and Options).</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Menus drop down but do not disappear =&gt; pixel
+        garbage on screen.</td>
+        <td><p align="center">-</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">-</p>
+        </td>
+        <td>General <strong>problem of my Magic </strong>and
+        monochrome screen resolution.</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>VA_START and D&amp;D: Re-test with filenames
+        containing blanks because of possible need to call
+        Af_unquote() now.&nbsp;</td>
+        <td><p align="center">?</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td><p align="center">x</p>
+        </td>
+        <td>VA_START tested with blanks on Magic and works!</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+<p>Note: ST Emulator with GDOS emulation (i.e. not with NVDI)
+does not offer a metafile driver.</p>
+
+<hr>
+
+<p><img src="../addr.gif" width="150" height="20"
+style="border: 0px solid ; width: 150px; height: 20px;"></p>
+</body>
+</html>

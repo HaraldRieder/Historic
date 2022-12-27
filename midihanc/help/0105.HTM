@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>
+Installation
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI Enhancer</i><br><br>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0104.HTM"><img src="udo_lf.gif" alt="Delivery"></a>
+<a href="02.HTM"><img src="udo_rg.gif" alt="Using the MIDI Enhancer"></a>
+<hr>
+<h1><a name="Installation">1.5 Installation</a></h1>
+<p>The program does not run reasonably from CD-ROM or other
+write-protected media! Copy all files to a writable destination
+directory.
+</p>
+<p>The program saves its settings on singletasking TOS in its
+installation directory, otherwise in the user's home directory.
+</p>
+<p>Connect the MIDI output of your keyboard to the MIDI input of your
+computer. Split your keyboard. It must be able to send on 2 different
+channels. Or use any 2 MIDI instruments and a MIDI mixer. E.g., if you
+send on channels 2 and 8, select channel 2 as control channel and
+channel 8 as input channel, or vice versa, in the controller window.
+Do not enable the control channel as input channel.
+</p>
+<p>Connect the MIDI output of your computer to the MIDI input of your
+synthesizer.
+</p>
+<p>If your synthesizer is GS compatible, it will understand scale
+tune messages. You are ready to take off now!
+</p>
+<p>If you want to use pitch bend mode:
+</p>
+<blockquote>
+<p>Your synthesizer must work in the poly mode, receiving on all
+output channels enabled in the MIDI Enhancer. Select the same sound on
+each MIDI channel. The pitch bend range on each channel must be
+-100..100 cent. This means that, if you would play a D, you could
+reach a C# or a D# with the pitch bend wheel. If your synthesizer
+understands pitch bend sensitivity messages, it will be adjusted to
+the right sensitivity automatically by the MIDI Enhancer. If your
+synthesizer always reserves channel 10 for the drums, you must disable
+output channel 10 (red arrow 9 in the controller window).
+</p>
+</blockquote>
+<p>A typical pitch bend mode setup with a 15 voice piano is shown
+here:
+</p>
+<pre>
+  Keyboard  MIDI cable  Computer  MIDI cable         Expander
+   -----               ---------             -----------------------
+  |     |             |        0|----------&gt;|Piano PB sens. 100 cent|
+  |     |             |        1|----------&gt;|Piano PB sens. 100 cent|
+  |Split| channel 1   |        2|----------&gt;|Piano PB sens. 100 cent|
+  |Zone |------------&gt;|control 3|----------&gt;|Piano PB sens. 100 cent|
+  |1    | harmonizing |channel 4|----------&gt;|Piano PB sens. 100 cent|
+  |     | note        |        5|----------&gt;|Piano PB sens. 100 cent|
+  |     |             |        6|----------&gt;|Piano PB sens. 100 cent|
+  |     |             |        7|----------&gt;|Piano PB sens. 100 cent|
+  |-----|             |        8|----------&gt;|Piano PB sens. 100 cent|
+  |     |             | disabled|-x         |Drums (<a href="0202.HTM">General</a> MIDI)   |
+  |     |             |        A|----------&gt;|Piano PB sens. 100 cent|
+  |Split|             |        B|----------&gt;|Piano PB sens. 100 cent|
+  |Zone | channel 2   |        C|----------&gt;|Piano PB sens. 100 cent|
+  |2    |------------&gt;|input   D|----------&gt;|Piano PB sens. 100 cent|
+  |     | the music   |channel E|----------&gt;|Piano PB sens. 100 cent|
+  |     |             |        F|----------&gt;|Piano PB sens. 100 cent|
+   -----               ---------             -----------------------
+</pre>
+</p>
+<hr>
+<a href="01.HTM"><img src="udo_up.gif" alt="Introduction"></a>
+<a href="0104.HTM"><img src="udo_lf.gif" alt="Delivery"></a>
+<a href="02.HTM"><img src="udo_rg.gif" alt="Using the MIDI Enhancer"></a>
+</body>
+</html>

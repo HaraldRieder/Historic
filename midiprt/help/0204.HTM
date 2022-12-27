@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>
+The Parameters Window
+</title>
+<meta name="Author" content="Harald Rieder">
+</head>
+<body>
+<i>Mad Harry's MIDI File Printer</i><br><br>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0203.HTM"><img src="udo_lf.gif" alt="The Information Window"></a>
+<a href="0205.HTM"><img src="udo_rg.gif" alt="The Filter Window"></a>
+<hr>
+<h1><a name="The Parameters Window">2.4 The Parameters Window</a></h1>
+<p>This windows shows information from the profile of the MIDI file
+of the one document window that was most recently on top.
+</p>
+<p>If the MIDI file does not have a profile attached, the information
+in this window comes from the default profile midi_prt.mi$ or - if
+that does not exist - from fix coded defaults.
+</p>
+<p>Initially also the MIDI file influences some fields:
+</p>
+<ul>
+<li> title: whenever it is still empty the file name will be inserted.
+<li> bar length: initialized from the time signature meta event
+<li> sub-bars: the nominator of the time signature
+<li> transpose: the key of the key signature. Major/minor is ignored
+here!
+</ul>
+</p>
+<p>Hint: to avoid the file name as default title, enter a blank
+character as title for the default profile.
+</p>
+<p>When there is no document window with a MIDI file, the values are
+drawn in a way that indicates their invalidity.
+</p>
+<p>You can manipulate the following things:
+</p>
+<ul>
+<li> title: title of the piece (shown on top of 1st page), its text
+effects and its font. The font selected here is used also for track
+and dodecime labels and bar numbers.
+<li> borders: free space on the top, bottom, left and right of each
+page can be reserved in percent of the page height and width,
+respectively.
+<li> distances: the system distance is the vertical distance between 2
+staff systems - in percent of the page height. The track distance is
+the vertical distance between 2 enabled tracks. (Tracks are enabled or
+disabled with the help of the filter window.) The note distance is the
+vertical distance between 2 succeeding notes, for example between 3
+and 4 or 9 and A.
+<li> bars: the bars to be drawn per line (per system), their length in
+1/8 notes, and the number of dashed auxiliary lines or
+&quot;sub-bars&quot;. The values are used throughout
+<li> notation: time division and style according to Johannes
+Beyreuther's notation, Harald Rieder's notation or a mixture of both.
+The number of horizontal lines per dodecime, which must be a divider
+of 12, can be chosen. Johannes Beyreuther uses 3 and I orignially used
+6 lines per dodecime.
+<li> notes: the average height, or &quot;thickness&quot; of a note,
+i.e. the height of a note with mean dynamic, can be adjusted in
+arbitrary units. The dynamic determines how much the note height
+depends on the MIDI note-on dynamic. For the note heads, bodies and
+tails several shapes can be selected.
+<li> color scheme: the notes, dodecimes and bars can be colorized with
+color schemes that are stored in a separate files. Click on the color
+scheme to edit it (Atari TOS only) or to select a different one. The
+color scheme can be transposed to better fit to the key of the piece.
+Notes can be drawn with normal, 3D or no borders. The 3D effect looks
+best when the fill color is a little bit lighter than the border
+color.
+<li> line widths: whenever there is a button with a &quot;-&quot;, you
+can select the corresponding item's line width.
+</ul>
+</p>
+<hr>
+<a href="02.HTM"><img src="udo_up.gif" alt="Using the MIDI File Printer"></a>
+<a href="0203.HTM"><img src="udo_lf.gif" alt="The Information Window"></a>
+<a href="0205.HTM"><img src="udo_rg.gif" alt="The Filter Window"></a>
+</body>
+</html>
