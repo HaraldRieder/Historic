@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=utf-8">
+<meta name="Keywords" content="MIDI, synthesizer, Roland, Juno-D">
+<meta name="Author" content="Harald Rieder, Stuttgart, Germany">
+<meta name="Publisher" content="Harald Rieder, Stuttgart, Germany">
+<meta name="Copyright" content="Harald Rieder, Stuttgart, Germany">
+<meta name="Content-language" content="de">
+<meta name="Page-topic" content="music">
+<meta name="Page-type" content="private">
+<meta name="Audience" content="musicians">
+<meta name="Robots" content="INDEX,FOLLOW">
+<title>Die Mysterien der Juno-D Controller</title>
+</head>
+
+<body>
+
+<h1 align="center">Die Mysterien der Juno-D Controller</h1>
+
+<p>Der Juno-D besitzt nicht gerade wenige Steuermöglichkeiten ("Controller"). Manche können über die Software-Einstellungen verschiedenen Parametern zugeordnet werden und andere nicht.
+</p>
+<p>Die <b>nicht</b> über Software zuordenbaren sind:
+<ul>
+  <li>Externes Haltepedal</li>
+  <li>Volume</li>
+  <li>Balance</li>
+  <li>LFO-Rate</li>
+  <li>LFO-Depth</li>
+  <li>Cutoff</li>
+  <li>Resonance</li>
+  <li>D-Beam eingeschaltet über den Solo-Synth- oder Active-Expression-Knopf</li>
+</ul>
+</p>
+<h2 align="center">Der Software-Dschungel</h2>
+<p>Die Bedienungsanleitung zu kennen ist nun Voraussetzung. Die Controller-Informationen sind leider weit verstreut über die Anleitung und nach einem gründlichen Studium der Anleitung bleiben immer noch Fragen offen. Diese sollen hier zum Teil beantwortet werden.</p>
+
+<h3 align="center">D-Beam Assignable</h3>
+<p>Der Parameter, auf den der D-Beam wirkt, kann direkt gewählt werden, sobald der D-Beam aktiv ist. Die Einstellung bleibt beim Ausschalten erhalten, ohne dass sie extra gespeichert werden muss.</p>
+<p>
+<i>Vorsicht: wählt man als Zielparameter Solo Synth oder Active Expression, dann verlässt man den Assignable-Modus und die Einstellung bleibt nicht erhalten. Wählt man einen anderen Parameter, dann betritt man automatisch den Assignable-Modus.</i> Insgesamt kann man diese Benutzerführung schönstenfalls als "hochkreativ" bezeichnen. Aber welches richtige Musikinstrument ist schon leicht zu beherrschen?
+</p>
+
+<h3 align="center">System</h3>
+<p>Beim Haltepedal werden Schließer und Öffner unterstützt.</p>
+<p><b>Local Control</b> muss ein sein, damit mit den Reglern und Schaltern am Juno-D überhaupt irgendwelche Parameter gesteuert werden können. Sonst funktioniert nur die Steuerung über MIDI. Auch die nicht über Software zuordenbaren Controller werden durch diese Einstellung beeinflusst.</p>
+<p><b>Modulation Assign</b> bestimmt den Zielparameter des Modulation Controllers. Er heißt also immer "Modulation", kann aber ganz andere Dinge steuern, z.B. die Stärke des Hall-Effekts. Selbiges gilt für den <b>externen Controller</b>, <b>Attack</b>, <b>Decay</b> und <b>Release</b>, die im Menü - wohl um es ein Bisschen spannender zu machen - <i>Pedal</i>, <i>C1</i>, <i>C2</i> und <i>C3</i> heißen.
+</p>
+<p>Hinweis: Mit <i>Expression</i> ist immer der Parameter <i>Active Expression</i> gemeint.</p>
+
+<h3 align="center">Patch</h3>
+<h4>Common</h4>
+<p>
+<ul>
+  <li>Key Mode: nur bei DUAL kann Active Expression funktionieren.</li>
+  <li>Modulation Destination: upper/lower/both, d.h. welcher Tone den Modulation-Effekt haben kann.</li>
+  <li>Pitch Bend Destination: selbiges für den Pitch Bend Controller (dieser ist ja fest dem Pitch-Bend-Parameter zugeordnet).</li>
+  <li>Modify Destination: dito, es sind die Regler Attack ... Resonance betroffen.</li>
+  <li>Expression Destination: selbiges für den Active-Expression-Effekt.</li>
+  <li>Active Expression: ein/aus. <b>Im ausgeschalteten Zustand wird durch Active Expression nicht etwa nichts geregelt, sondern die Lautstärke!</b></li>
+</ul>
+</p>
+<h4>Tone</h4>
+<p>
+<ul><li>MFX Switch: steht er auf <i>Bypass</i>, dann können die den MFX-Parametern zugeordneten Controller bei diesem Tone natürlich nichts ausrichten.</li></ul>
+</p>
+<h3 align="center">Performance</h3>
+<h4>Common</h4>
+<p>
+<ul><li>MFX Source: common/part hängt natürlich mit solchen Controllern zusammen, die als Zielparameter MFX-Parameter 1 oder 2 haben.</li></ul>
+</p>
+<h4>Part</h4>
+<p>Die Controller wirken immer nur auf den ausgewählten Part (grob gesprochen, siehe unten). Bei Part 1 bis 10 leuchten gnädigerweise die LEDs der entsprechenden Knöpfe. Bei Parts 11 bis 16 leuchtet nichts.</p>
+<p>Wählt man eine andere Performance, dann leuchtet die LED des Knopfes, der der niedrigeren Dezimalstelle der Performance-Nummer entspricht (auf so eine Idee muss man erst mal kommen!). <b>Der ausgewählte Part bleibt erhalten, auch wenn jetzt ein anderer Knopf leuchten mag.</b> Dies sieht man, wenn man wieder Part Select drückt.</p>
+<p><b>Die ganze Wahrheit:</b> die Controller wirken nicht nur auf den ausgewählten Part, sondern auf alle Parts, die auf dem selben MIDI-Kanal empfangen wie der ausgewählte Part.
+</p>
+<p>Beispiel: Part 2 und 3 empfangen beide auf Kanal 2 (sozusagen ein Dual-Sound realisiert über die Performance-Einstellungen). Wenn Part 2 oder 3 gewählt ist, werden Part 2 und Part 3 von den Controllern gesteuert.</p>
+<ul><li>Receive Switch: sollte natürlich eingeschaltet sein, sonst ist bei diesem Part gar nichts auszurichten.</ul></li>
+<h4>Part Effects</h4>
+<p>
+<img hspace="40" src="700px-MFX-Performance-Mode.png" width="700px" vspace="2"/>
+</p>
+<p>
+<ul>
+  <li>MFX kann je Part auf <i>Bypass</i> geschaltet werden. Damit erlischt natürlich die Steuerbarkeit von MFX-Parametern.</li>
+  <li>Chorus und Reverb: wenn diese auf 0 gesetzt werden, dann kann ein entsprechend zugeordneter Controller natürlich auch keine Chorus- oder Hallstärke mehr steuern.</li>
+</ul>
+</p>
+
+<h3 align="center">MFX</h3>
+<p>Dieser Abschnitt gilt für den Patch- und den Performance-Modus. Es können je nach gewähltem Effekt-Typ bis zu 2 Parameter durch Controller geregelt werden. Da man an dieser Stelle nicht weiß, welcher Regler das einmal tun wird (z.B. das externe Pedal), heißen sie im Menü <i>Ctrl 1</i> und <i>Ctrl 2</i>.</p>
+<p>Wir können also zum Beispiel insgesamt solche Zuordnungsketten konfigurieren:</p>
+<p>Modulation&nbsp; &minus;System-Menü&minus;> &nbsp;MFX Par1&nbsp; &minus;MFX-Menü&minus;> &nbsp;Rotary Speed</p>
+<p>D-Beam&nbsp; &minus;Assignable-Menü&minus;> &nbsp;MFX Par2&nbsp; &minus;MFX-Menü&minus;> &nbsp;Rotary Level</p>
+<p>Das heißt <i>Ctrl 1</i> ist Modulation und <i>Ctrl 2</i> ist D-Beam.</p>
+
+<h2 align="center">Fazit</h2>
+<p>Eigentlich wünscht man sich als Musiker, der auf der Bühne steht, Knöpfe auf die man drücken kann, die einem alles fertig einstellen. Für die Patches und Performances trifft das beim Juno-D weitgehend zu, was den Klang betrifft. Natürlich konnte im Performance-Modus nicht jeder Part seine eigenen MFX-Einstellungen bekommen, sonst wäre das Produkt wenigstens doppelt so teuer geworden. Damit fängt die Sound-Tüftelei natürlich an komplizierter zu werden: im Performance-Modus klingen z.B. manche Bässe anders, weil man ihnen den Equalizer wegnehmen muss, den sie als Patch über MFX-Einstellungen mitbringen.</p>
+<p>Bei den Controllern ist man vom Ziel weit entfernt. Gerade im Performance-Modus tut dies weh. Zum Beispiel könnte das externe Pedal bei einem Orgel-Part die Rotationsgeschwindigkeit steuern und bei einer anderen Performance die Verzerrer-Stärke eines Gitarren-Part. Leider muss man die Zuordnungen global vornehmen und braucht entsprechend viele Controller. Nur einer davon kann mit dem Fuß bedient werden, und welcher Keyboarder hat beim Spielen ständig eine Hand frei, um einen zweiten Regler damit zu bedienen? Deswegen werden Insekten und Spinnen über kurz oder lang die besseren Musiker stellen.
+</p>
+
+<h5>Aus vermaschung.de, 2019-12-09, Harald Rieder, Stuttgart</h5>
+</body>
+</html>
